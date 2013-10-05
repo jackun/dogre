@@ -1,0 +1,35 @@
+compiler=ldc2
+linker=ldc2
+BUILD=Release
+#DFLAGS=-lib -d-debug -gc -oq -mcpu=core2
+DFLAGS=-lib -release -O -oq -mcpu=core2
+
+target=bin/$(BUILD)/libDerelictUtil.a
+objects = obj/$(BUILD)/derelict.util.exception.o obj/$(BUILD)/derelict.util.loader.o obj/$(BUILD)/derelict.util.sharedlib.o obj/$(BUILD)/derelict.util.system.o obj/$(BUILD)/derelict.util.wintypes.o obj/$(BUILD)/derelict.util.xtypes.o
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) -lib "-of$@" $(objects) -L-ldl
+
+obj/$(BUILD)/derelict.util.exception.o : derelict/util/exception.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/$(BUILD)/derelict.util.loader.o : derelict/util/loader.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/$(BUILD)/derelict.util.sharedlib.o : derelict/util/sharedlib.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/$(BUILD)/derelict.util.system.o : derelict/util/system.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/$(BUILD)/derelict.util.wintypes.o : derelict/util/wintypes.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/$(BUILD)/derelict.util.xtypes.o : derelict/util/xtypes.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+clean:
+	$(RM) "$(target)" $(objects)

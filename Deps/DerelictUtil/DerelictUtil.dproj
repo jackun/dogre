@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{665F92DA-453B-4F81-B2D0-09BC4279A153}</ProjectGuid>
+    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <Compiler>DMD2</Compiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <ObjectsDirectory>obj/Debug</ObjectsDirectory>
+    <UnittestMode>False</UnittestMode>
+    <OutputName>libDerelictUtil</OutputName>
+    <Target>StaticLibrary</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>libDerelictUtil</OutputName>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj/Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <ObjectsDirectory>obj/Unittest</ObjectsDirectory>
+    <UnittestMode>True</UnittestMode>
+    <OutputName>libDerelictUtil</OutputName>
+    <Target>StaticLibrary</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+    <ExtraLinkerArguments>-ldl</ExtraLinkerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="derelict\util\exception.d" />
+    <Compile Include="derelict\util\loader.d" />
+    <Compile Include="derelict\util\sharedlib.d" />
+    <Compile Include="derelict\util\system.d" />
+    <Compile Include="derelict\util\wintypes.d" />
+    <Compile Include="derelict\util\xtypes.d" />
+  </ItemGroup>
+</Project>

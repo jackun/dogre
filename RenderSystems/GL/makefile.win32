@@ -1,0 +1,138 @@
+compiler=dmd
+linker=dmd
+
+DFLAGS=-debug -g -I../../OgreD -I../../Deps/DerelictGL3 -I../../Deps/DerelictSDL2 -I../../Deps/DerelictFI -I../../Deps/DerelictUtil
+target=bin/Debug/libRenderSystemGL.lib
+objects = obj/Debug/ogregl.config.obj obj/Debug/ogregl.context.obj obj/Debug/ogregl.plugin.obj obj/Debug/ogregl.rendersystem.obj obj/Debug/ogregl.compat.obj obj/Debug/ogregl.glew.obj obj/Debug/ogregl.support.obj obj/Debug/ogregl.pbuffer.obj obj/Debug/ogregl.pbrendertexture.obj obj/Debug/ogregl.rendertexture.obj obj/Debug/ogregl.hardwarebuffermanager.obj obj/Debug/ogregl.pixelformat.obj obj/Debug/ogregl.hardwarepixelbuffer.obj obj/Debug/ogregl.gpuprogram.obj obj/Debug/ogregl.gpuprogrammanager.obj obj/Debug/ogregl.glsl.programfactory.obj obj/Debug/ogregl.glsl.linkprogram.obj obj/Debug/ogregl.glsl.gpuprogram.obj obj/Debug/ogregl.glsl.program.obj obj/Debug/ogregl.glsl.linkprogrammanager.obj obj/Debug/ogregl.glsl.preprocessor.obj obj/Debug/ogregl.sdl.window.obj obj/Debug/ogregl.sdl.support.obj obj/Debug/ogregl.hardwarevertexbuffer.obj obj/Debug/ogregl.defaulthardwarebuffermanager.obj obj/Debug/ogregl.hardwareindexbuffer.obj obj/Debug/ogregl.depthbuffer.obj obj/Debug/ogregl.texturemanager.obj obj/Debug/ogregl.texture.obj obj/Debug/ogregl.fborendertexture.obj obj/Debug/ogregl.framebufferobject.obj obj/Debug/ogregl.fbomultirendertarget.obj obj/Debug/ogregl.hardwareocclusionquery.obj obj/Debug/ogregl.rendertovertexbuffer.obj obj/Debug/ogregl.glsl.extsupport.obj obj/Debug/ogregl.glu.obj obj/Debug/ogregl.windows.window.obj obj/Debug/ogregl.windows.support.obj obj/Debug/ogregl.windows.context.obj obj/Debug/ogregl.windows.pbuffer.obj obj/Debug/ogregl.util.obj
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) $(DFLAGS) -lib "-of$@" $(objects)
+
+obj/Debug/ogregl.util.obj : ogregl/util.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.windows.context.obj : ogregl/windows/context.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.windows.pbuffer.obj : ogregl/windows/pbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.windows.support.obj : ogregl/windows/support.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.windows.window.obj : ogregl/windows/window.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.config.obj : ogregl/config.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.context.obj : ogregl/context.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.plugin.obj : ogregl/plugin.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.rendersystem.obj : ogregl/rendersystem.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.compat.obj : ogregl/compat.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glew.obj : ogregl/glew.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.support.obj : ogregl/support.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.pbuffer.obj : ogregl/pbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.pbrendertexture.obj : ogregl/pbrendertexture.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.rendertexture.obj : ogregl/rendertexture.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.hardwarebuffermanager.obj : ogregl/hardwarebuffermanager.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.pixelformat.obj : ogregl/pixelformat.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.hardwarepixelbuffer.obj : ogregl/hardwarepixelbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.gpuprogram.obj : ogregl/gpuprogram.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.gpuprogrammanager.obj : ogregl/gpuprogrammanager.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.programfactory.obj : ogregl/glsl/programfactory.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.linkprogram.obj : ogregl/glsl/linkprogram.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.gpuprogram.obj : ogregl/glsl/gpuprogram.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.program.obj : ogregl/glsl/program.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.linkprogrammanager.obj : ogregl/glsl/linkprogrammanager.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.preprocessor.obj : ogregl/glsl/preprocessor.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.sdl.window.obj : ogregl/sdl/window.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.sdl.support.obj : ogregl/sdl/support.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.hardwarevertexbuffer.obj : ogregl/hardwarevertexbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.defaulthardwarebuffermanager.obj : ogregl/defaulthardwarebuffermanager.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.hardwareindexbuffer.obj : ogregl/hardwareindexbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.depthbuffer.obj : ogregl/depthbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.texturemanager.obj : ogregl/texturemanager.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.texture.obj : ogregl/texture.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.fborendertexture.obj : ogregl/fborendertexture.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.framebufferobject.obj : ogregl/framebufferobject.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.fbomultirendertarget.obj : ogregl/fbomultirendertarget.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.hardwareocclusionquery.obj : ogregl/hardwareocclusionquery.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.rendertovertexbuffer.obj : ogregl/rendertovertexbuffer.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glsl.extsupport.obj : ogregl/glsl/extsupport.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogregl.glu.obj : ogregl/glu.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+clean:
+	del /Q "$(target)" $(objects)

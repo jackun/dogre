@@ -1,0 +1,34 @@
+compiler=dmd
+linker=dmd
+
+DFLAGS="-I../DerelictUtil" #-gc -debug
+target=bin/Debug/libDerelictSDL2.lib
+objects = obj/Debug/derelict.sdl2.functions.obj obj/Debug/derelict.sdl2.image.obj obj/Debug/derelict.sdl2.mixer.obj obj/Debug/derelict.sdl2.sdl.obj obj/Debug/derelict.sdl2.ttf.obj obj/Debug/derelict.sdl2.types.obj
+
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) $(DFLAGS) -lib "-of$@" $(objects)
+
+obj/Debug/derelict.sdl2.functions.obj : derelict/sdl2/functions.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+obj/Debug/derelict.sdl2.image.obj : derelict/sdl2/image.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+obj/Debug/derelict.sdl2.mixer.obj : derelict/sdl2/mixer.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+obj/Debug/derelict.sdl2.sdl.obj : derelict/sdl2/sdl.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+obj/Debug/derelict.sdl2.ttf.obj : derelict/sdl2/ttf.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+obj/Debug/derelict.sdl2.types.obj : derelict/sdl2/types.d
+	$(compiler) -c $? "-of$@" $(DFLAGS)
+
+clean:
+	$(RM) "$(target)" $(objects)

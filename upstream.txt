@@ -1,0 +1,19 @@
+Initial non-full conversion from "upstream" changeset:
+
+changeset:   4107:44d7cfa5f9c1
+branch:      v1-9
+tag:         tip
+parent:      4106:e885d90db31a
+parent:      4102:8d750ebf9176
+user:        philiplb <philip@philiplb.de>
+date:        Sun Dec 16 21:16:13 2012 +0100
+summary:     Merge
+
+Bringing up to date:
+changeset:   4697:b023c5abc6b0
+branch:      v1-9
+tag:         tip
+user:        David Rogers <masterfalcon@ogre3d.org>
+date:        Mon Jun 03 23:45:26 2013 -0500
+summary:     Improve GL ES 2 emulation detection. You can now also specify MALI_SDK_ROOT and AMD_SDK_ROOT in the environment to help find their respective headers and libraries.
+

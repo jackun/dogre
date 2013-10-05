@@ -1,0 +1,56 @@
+compiler=ldc2
+linker=ldc2
+
+target=bin/Debug/Sample1
+objects = obj/Debug/main.o
+# Annoying, every lib must be here too
+LIBS=-L-lX11 -L-ldl -L-lXaw -L-lXt 
+DFLAGS=-d-debug -oq -mcpu=core2
+deps =  ../RenderSystemGL/bin/Debug/libRenderSystemGL.a ../OgreD/bin/Debug/libOgreD.a \
+	../DerelictSDL2/bin/Debug/libDerelictSDL2.a \
+	../DerelictGL3/bin/Debug/libDerelictGL3.a \
+	../DerelictFI/bin/Debug/libDerelictFI.a \
+	../DerelictUtil/bin/Debug/libDerelictUtil.a \
+	
+
+all: depends $(target)
+
+depends: $(deps)
+	@echo
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) -d-debug -gc $(LIBS) "-of$@" 	\
+	$(objects) $(deps) 
+##	../OgreD/bin/Debug/libOgreD.a
+
+
+obj/Debug/main.o : main.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" "-I../OgreD" "-I../DerelictFI" "-I../RenderSystemGL" "-I../DerelictGL3" "-I../DerelictUtil" "-I../DerelictSDL2" -gc 
+
+../DerelictFI/bin/Debug/libDerelictFI.a : ../DerelictFI
+	@echo Make DerelictFI
+	cd $? ;$(MAKE) -f makefile.ldc
+
+../DerelictUtil/bin/Debug/libDerelictUtil.a : ../DerelictUtil
+	@echo Make DerelictUtil
+	cd $? ;$(MAKE) -f makefile.ldc
+	
+../DerelictSDL2/bin/Debug/libDerelictSDL2.a : ../DerelictSDL2
+	@echo Make DerelictSDL2
+	cd $? ;$(MAKE) -f makefile.ldc
+
+../DerelictGL3/bin/Debug/libDerelictGL3.a : ../DerelictGL3
+	@echo Make DerelictGL3
+	cd $? ;$(MAKE) -f makefile.ldc
+
+../RenderSystemGL/bin/Debug/libRenderSystemGL.a : ../RenderSystemGL
+	@echo Make RenderSystemGL
+	cd $? ;$(MAKE) -f makefile.ldc
+	
+../OgreD/bin/Debug/libOgreD.a : ../OgreD
+	@echo Make OgreD
+	cd $? ;$(MAKE) -f makefile.lib.ldc
+	
+clean:
+	$(RM) "$(target)" $(objects)

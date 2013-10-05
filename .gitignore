@@ -1,0 +1,16 @@
+.hg
+.hgignore
+*.exe
+*.dll
+*.log
+*.o
+*.lib
+*.zip
+*.userprefs
+obj
+bin
+Release
+Debug
+Unittest
+doxy
+ssh*

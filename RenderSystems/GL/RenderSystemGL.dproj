@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2EDC3B8E-D9E4-44AD-93EB-F6877FC8AC87}</ProjectGuid>
+    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <Compiler>DMD2</Compiler>
+    <Includes>
+      <Includes>
+        <Path>..\..\OgreD</Path>
+        <Path>..\..\Deps\DerelictGL3</Path>
+        <Path>..\..\Deps\DerelictSDL2</Path>
+        <Path>..\..\Deps\DerelictFI</Path>
+        <Path>..\..\Deps\DerelictUtil</Path>
+      </Includes>
+    </Includes>
+    <DependentProjectIds>
+      <DependentProjectIds>
+        <String>{965F92DA-453B-4F81-B2D0-09BC4279A153}</String>
+      </DependentProjectIds>
+    </DependentProjectIds>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <ObjectsDirectory>obj/Debug</ObjectsDirectory>
+    <UnittestMode>False</UnittestMode>
+    <OutputName>libRenderSystemGL</OutputName>
+    <Target>StaticLibrary</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>SharedLibrary</Target>
+    <OutputName>libRenderSystemGL</OutputName>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj/Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <ObjectsDirectory>obj/Unittest</ObjectsDirectory>
+    <UnittestMode>True</UnittestMode>
+    <OutputName>libRenderSystemGL</OutputName>
+    <Target>StaticLibrary</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ogregl\config.d" />
+    <Compile Include="ogregl\plugin.d" />
+    <Compile Include="ogregl\rendersystem.d" />
+    <Compile Include="ogregl\compat.d" />
+    <Compile Include="ogregl\glew.d" />
+    <Compile Include="ogregl\pbuffer.d" />
+    <Compile Include="ogregl\pbrendertexture.d" />
+    <Compile Include="ogregl\rendertexture.d" />
+    <Compile Include="ogregl\hardwarebuffermanager.d" />
+    <Compile Include="ogregl\pixelformat.d" />
+    <Compile Include="ogregl\hardwarepixelbuffer.d" />
+    <Compile Include="ogregl\gpuprogram.d" />
+    <Compile Include="ogregl\gpuprogrammanager.d" />
+    <Compile Include="ogregl\glsl\programfactory.d" />
+    <Compile Include="ogregl\glsl\linkprogram.d" />
+    <Compile Include="ogregl\glsl\gpuprogram.d" />
+    <Compile Include="ogregl\glsl\program.d" />
+    <Compile Include="ogregl\glsl\linkprogrammanager.d" />
+    <Compile Include="ogregl\glsl\preprocessor.d" />
+    <Compile Include="ogregl\sdl\window.d" />
+    <Compile Include="ogregl\sdl\support.d" />
+    <Compile Include="ogregl\hardwarevertexbuffer.d" />
+    <Compile Include="ogregl\defaulthardwarebuffermanager.d" />
+    <Compile Include="ogregl\hardwareindexbuffer.d" />
+    <Compile Include="ogregl\depthbuffer.d" />
+    <Compile Include="ogregl\texturemanager.d" />
+    <Compile Include="ogregl\texture.d" />
+    <Compile Include="ogregl\fborendertexture.d" />
+    <Compile Include="ogregl\framebufferobject.d" />
+    <Compile Include="ogregl\fbomultirendertarget.d" />
+    <Compile Include="ogregl\hardwareocclusionquery.d" />
+    <Compile Include="ogregl\rendertovertexbuffer.d" />
+    <Compile Include="ogregl\glsl\extsupport.d" />
+    <Compile Include="ogregl\glu.d" />
+    <Compile Include="ogregl\glx\context.d" />
+    <Compile Include="ogregl\context.d" />
+    <Compile Include="ogregl\glx\support.d" />
+    <Compile Include="ogregl\glx\window.d" />
+    <Compile Include="ogregl\glx\pbuffer.d" />
+    <Compile Include="ogregl\windows\support.d" />
+    <Compile Include="ogregl\support.d" />
+    <Compile Include="ogregl\util.d" />
+    <Compile Include="ogregl\windows\window.d" />
+    <Compile Include="ogregl\windows\context.d" />
+    <Compile Include="ogregl\windows\pbuffer.d" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ogregl\" />
+    <Folder Include="ogregl\glsl\" />
+    <Folder Include="ogregl\sdl\" />
+    <Folder Include="ogregl\glx\" />
+    <Folder Include="ogregl\windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="myclass.d" />
+  </ItemGroup>
+</Project>

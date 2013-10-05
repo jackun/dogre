@@ -1,0 +1,61 @@
+compiler=dmd
+linker=dmd
+
+#DFLAGS=-gc -debug
+target=bin/Debug/libDerelictGL3.lib
+objects = obj/Debug/derelict.opengl3.arb.obj obj/Debug/derelict.opengl3.cgl.obj obj/Debug/derelict.opengl3.constants.obj obj/Debug/derelict.opengl3.deprecatedConstants.obj obj/Debug/derelict.opengl3.deprecatedFunctions.obj obj/Debug/derelict.opengl3.ext.obj obj/Debug/derelict.opengl3.functions.obj obj/Debug/derelict.opengl3.gl.obj obj/Debug/derelict.opengl3.gl3.obj obj/Debug/derelict.opengl3.glx.obj obj/Debug/derelict.opengl3.internal.obj obj/Debug/derelict.opengl3.types.obj obj/Debug/derelict.opengl3.wgl.obj obj/Debug/derelict.opengl3.nv.obj obj/Debug/derelict.opengl3.wext.obj
+
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) $(DFLAGS) -lib "-of$@" $(objects)
+
+obj/Debug/derelict.opengl3.arb.obj : derelict/opengl3/arb.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.cgl.obj : derelict/opengl3/cgl.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.constants.obj : derelict/opengl3/constants.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.deprecatedConstants.obj : derelict/opengl3/deprecatedConstants.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.deprecatedFunctions.obj : derelict/opengl3/deprecatedFunctions.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.ext.obj : derelict/opengl3/ext.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.wext.obj : derelict/opengl3/wext.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+	
+obj/Debug/derelict.opengl3.functions.obj : derelict/opengl3/functions.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.gl.obj : derelict/opengl3/gl.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.gl3.obj : derelict/opengl3/gl3.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.glx.obj : derelict/opengl3/glx.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.internal.obj : derelict/opengl3/internal.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.types.obj : derelict/opengl3/types.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.wgl.obj : derelict/opengl3/wgl.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.opengl3.nv.obj : derelict/opengl3/nv.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+clean:
+	del /Q "$(target)" $(objects)

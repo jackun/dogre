@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4B987D5-2B6B-4FF8-A131-5CB26789DBF8}</ProjectGuid>
+    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <DependentProjectIds>
+      <DependentProjectIds>
+        <String>{A8986B85-CF5F-4468-980F-27CB3ADF5541}</String>
+        <String>{865F92DA-453B-4F81-B2D0-09BC4279A153}</String>
+        <String>{2EDC3B8E-D9E4-44AD-93EB-F6877FC8AC87}</String>
+        <String>{965F92DA-453B-4F81-B2D0-09BC4279A153}</String>
+        <String>{665F92DA-453B-4F81-B2D0-09BC4279A153}</String>
+        <String>{E56AD56E-FFEF-4DFD-9695-708A919D6D6E}</String>
+      </DependentProjectIds>
+    </DependentProjectIds>
+    <Compiler>DMD2</Compiler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <ObjectsDirectory>obj/Debug</ObjectsDirectory>
+    <UnittestMode>False</UnittestMode>
+    <OutputName>Sample1</OutputName>
+    <Target>Executable</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+    <Libs>
+      <Libs>
+        <Lib>../../OgreD/ogre/general/windows/OgreWin32.res</Lib>
+      </Libs>
+    </Libs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <Externalconsole>True</Externalconsole>
+    <Target>Executable</Target>
+    <OutputName>Sample1</OutputName>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj/Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <ObjectsDirectory>obj/Unittest</ObjectsDirectory>
+    <UnittestMode>True</UnittestMode>
+    <OutputName>Sample1</OutputName>
+    <Target>Executable</Target>
+    <Externalconsole>True</Externalconsole>
+    <DebugLevel>0</DebugLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="main.d" />
+  </ItemGroup>
+</Project>

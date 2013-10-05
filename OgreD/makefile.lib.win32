@@ -1,0 +1,538 @@
+compiler=dmd
+linker=dmd
+
+#LIBS=-L-luser32
+
+DFLAGS=-debug -g -version=OGRE_NO_ZIP_ARCHIVE -version=OGRE_NO_VIEWPORT_ORIENTATIONMODE \
+	-I../Deps/DerelictFI -I../Deps/DerelictUtil 
+###-version=OGRE_GTK
+
+target=bin/Debug/libOgreD.lib
+objects = obj/Debug/ogre.compat.obj obj/Debug/ogre.exception.obj obj/Debug/ogre.singleton.obj \
+obj/Debug/ogre.sharedptr.obj obj/Debug/ogre.config.obj obj/Debug/ogre.strings.obj \
+obj/Debug/ogre.scene.scenemanager.obj obj/Debug/ogre.scene.scenenode.obj obj/Debug/ogre.scene.renderable.obj obj/Debug/ogre.scene.camera.obj obj/Debug/ogre.scene.movableobject.obj obj/Debug/ogre.scene.movableplane.obj obj/Debug/ogre.scene.node.obj obj/Debug/ogre.scene.light.obj obj/Debug/ogre.scene.shadowcaster.obj obj/Debug/ogre.scene.wireboundingbox.obj obj/Debug/ogre.scene.userobjectbindings.obj obj/Debug/ogre.scene.skeletoninstance.obj obj/Debug/ogre.scene.simplerenderable.obj obj/Debug/ogre.scene.shadowtexturemanager.obj obj/Debug/ogre.scene.rectangle2d.obj obj/Debug/ogre.scene.scenequery.obj obj/Debug/ogre.resources.texture.obj obj/Debug/ogre.resources.datastream.obj obj/Debug/ogre.resources.mesh.obj obj/Debug/ogre.resources.resource.obj obj/Debug/ogre.resources.resourcemanager.obj obj/Debug/ogre.resources.resourcegroupmanager.obj obj/Debug/ogre.resources.archive.obj obj/Debug/ogre.resources.highlevelgpuprogram.obj obj/Debug/ogre.scene.entity.obj obj/Debug/ogre.materials.pass.obj obj/Debug/ogre.materials.blendmode.obj obj/Debug/ogre.materials.material.obj obj/Debug/ogre.materials.technique.obj obj/Debug/ogre.materials.textureunitstate.obj obj/Debug/ogre.materials.autoparamdatasource.obj obj/Debug/ogre.rendersystem.hardware.obj obj/Debug/ogre.rendersystem.rendersystem.obj obj/Debug/ogre.rendersystem.renderqueuesortinggrouping.obj obj/Debug/ogre.rendersystem.renderoperation.obj obj/Debug/ogre.rendersystem.renderqueue.obj obj/Debug/ogre.rendersystem.vertex.obj obj/Debug/ogre.rendersystem.rendertarget.obj obj/Debug/ogre.rendersystem.viewport.obj obj/Debug/ogre.rendersystem.renderwindow.obj obj/Debug/ogre.effects.billboard.obj obj/Debug/ogre.effects.billboardset.obj obj/Debug/ogre.rendersystem.rendertargetlistener.obj obj/Debug/ogre.effects.billboardchain.obj obj/Debug/ogre.resources.texturemanager.obj obj/Debug/ogre.effects.ribbontrail.obj obj/Debug/ogre.effects.billboardparticlerenderer.obj obj/Debug/ogre.effects.compositor.obj obj/Debug/ogre.effects.compositionpass.obj obj/Debug/ogre.effects.compositiontechnique.obj obj/Debug/ogre.effects.compositiontargetpass.obj obj/Debug/ogre.rendersystem.rendertexture.obj obj/Debug/ogre.materials.materialmanager.obj obj/Debug/ogre.materials.materialserializer.obj obj/Debug/ogre.effects.particle.obj obj/Debug/ogre.effects.particlesystem.obj obj/Debug/ogre.effects.particleaffector.obj obj/Debug/ogre.effects.particleemitter.obj obj/Debug/ogre.effects.particlesystemmanager.obj obj/Debug/ogre.effects.particlesystemrenderer.obj obj/Debug/ogre.math.simplespline.obj obj/Debug/ogre.math.optimisedutil.obj obj/Debug/ogre.math.maths.obj obj/Debug/ogre.math.rotationalspline.obj obj/Debug/ogre.math.quaternion.obj obj/Debug/ogre.math.vector.obj obj/Debug/ogre.math.matrix.obj obj/Debug/ogre.math.sphere.obj obj/Debug/ogre.math.plane.obj obj/Debug/ogre.math.axisalignedbox.obj obj/Debug/ogre.math.frustum.obj obj/Debug/ogre.scene.instancedentity.obj obj/Debug/ogre.scene.instancedgeometry.obj obj/Debug/ogre.scene.instancemanager.obj obj/Debug/ogre.scene.manualobject.obj obj/Debug/ogre.scene.shadowcamera.obj obj/Debug/ogre.general.colourvalue.obj obj/Debug/ogre.general.controller.obj obj/Debug/ogre.general.generals.obj obj/Debug/ogre.math.bitwise.obj obj/Debug/ogre.general.controllermanager.obj obj/Debug/ogre.general.radixsort.obj obj/Debug/ogre.math.ray.obj obj/Debug/ogre.general.atomicwrappers.obj obj/Debug/ogre.scene.staticgeometry.obj obj/Debug/ogre.animation.animable.obj obj/Debug/ogre.animation.animations.obj obj/Debug/ogre.general.common.obj obj/Debug/ogre.general.profiler.obj obj/Debug/ogre.general.timer.obj \
+obj/Debug/ogre.general.glx.timer.obj obj/Debug/ogre.resources.meshmanager.obj \
+obj/Debug/ogre.materials.gpuprogram.obj obj/Debug/ogre.threading.defaultworkqueuestandard.obj obj/Debug/ogre.math.tangentspacecalc.obj obj/Debug/ogre.resources.unifiedhighlevelgpuprogram.obj obj/Debug/ogre.hash.obj obj/Debug/ogre.cityhash.obj obj/Debug/ogre.general.predefinedcontrollers.obj obj/Debug/ogre.math.edgedata.obj obj/Debug/ogre.math.angles.obj obj/Debug/ogre.resources.prefabfactory.obj obj/Debug/ogre.math.dualquaternion.obj obj/Debug/ogre.animation.skeletonserializer.obj obj/Debug/ogre.general.serializer.obj obj/Debug/ogre.general.windows.timer.obj obj/Debug/ogre.general.windows.configdialog.obj obj/Debug/ogre.general.configdialog.obj obj/Debug/ogre.math.convexbody.obj obj/Debug/ogre.general.platform.obj obj/Debug/ogre.math.polygon.obj obj/Debug/ogre.rendersystem.windoweventutilities.obj obj/Debug/ogre.rendersystem.glx.windoweventutilities.obj obj/Debug/ogre.rendersystem.windows.windoweventutilities.obj obj/Debug/ogre.image.pixelformat.obj obj/Debug/ogre.image.images.obj \
+obj/Debug/ogre.resources.meshserializer.obj obj/Debug/ogre.resources.meshfileformat.obj obj/Debug/ogre.scene.shadowvolumeextrudeprogram.obj obj/Debug/ogre.general.configfile.obj obj/Debug/ogre.general.framelistener.obj obj/Debug/ogre.lod.lodstrategymanager.obj obj/Debug/ogre.lod.lodstrategy.obj obj/Debug/ogre.lod.patchmesh.obj obj/Debug/ogre.lod.patchsurface.obj obj/Debug/ogre.animation.skeletonmanager.obj obj/Debug/ogre.general.root.obj obj/Debug/ogre.lod.distancelodstrategy.obj obj/Debug/ogre.lod.pixelcountlodstrategy.obj obj/Debug/ogre.general.dynlib.obj obj/Debug/ogre.general.dynlibmanager.obj obj/Debug/ogre.general.plugin.obj obj/Debug/ogre.general.workqueue.obj obj/Debug/ogre.resources.resourcebackgroundqueue.obj obj/Debug/ogre.general.scriptcompiler.obj obj/Debug/ogre.materials.externaltexturesource.obj obj/Debug/ogre.materials.externaltexturesourcemanager.obj obj/Debug/ogre.effects.compositormanager.obj obj/Debug/ogre.effects.compositorlogic.obj obj/Debug/ogre.effects.customcompositionpass.obj obj/Debug/ogre.spotshadowfadepng.obj \
+obj/Debug/ogre.bindings.mini_x11.obj \
+obj/Debug/ogre.bindings.mini_xaw.obj \
+obj/Debug/ogre.bindings.mini_win32.obj \
+obj/Debug/ogre.bindings.mini_gtk.obj \
+obj/Debug/ogre.image.freeimage.obj \
+obj/Debug/ogre.general.codec.obj \
+obj/Debug/ogre.general.scriptlexer.obj \
+obj/Debug/ogre.general.scripttranslator.obj \
+obj/Debug/ogre.general.scriptparser.obj \
+obj/Debug/ogre.general.log.obj \
+obj/Debug/ogre.general.gtk.configdialog.obj \
+obj/Debug/ogre.general.gtk.errordialog.obj \
+obj/Debug/ogre.backdrop.obj \
+obj/Debug/ogre.general.glx.errordialog.obj \
+obj/Debug/ogre.general.glx.configdialog.obj \
+obj/Debug/ogre.initstatics.obj
+
+#obj/Debug/main.o
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) -debug -lib  $(LIBS)  "-of$@" $(objects) ogre/general/windows/OgreWin32.res
+		
+		#"../DerelictFI/bin/Debug/libDerelictFI.lib" /
+		#"../DerelictUtil/bin/Debug/libDerelictUtil.lib"
+
+obj/Debug/ogre.initstatics.obj : ogre/initstatics.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.backdrop.obj : ogre/backdrop.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.bindings.mini_gtk.obj : ogre/bindings/mini_gtk.di
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.scriptparser.obj : ogre/general/scriptparser.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.scripttranslator.obj : ogre/general/scripttranslator.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+	
+obj/Debug/ogre.general.scriptlexer.obj : ogre/general/scriptlexer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+	
+obj/Debug/ogre.general.gtk.configdialog.obj : ogre/general/gtk/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+	
+obj/Debug/ogre.general.glx.configdialog.obj : ogre/general/glx/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.gtk.errordialog.obj : ogre/general/gtk/errordialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.compat.obj : ogre/compat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/main.obj : main.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.exception.obj : ogre/exception.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.singleton.obj : ogre/singleton.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.sharedptr.obj : ogre/sharedptr.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.config.obj : ogre/config.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.strings.obj : ogre/strings.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.scenemanager.obj : ogre/scene/scenemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.scenenode.obj : ogre/scene/scenenode.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.renderable.obj : ogre/scene/renderable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.camera.obj : ogre/scene/camera.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.movableobject.obj : ogre/scene/movableobject.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.movableplane.obj : ogre/scene/movableplane.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.node.obj : ogre/scene/node.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.light.obj : ogre/scene/light.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.shadowcaster.obj : ogre/scene/shadowcaster.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.wireboundingbox.obj : ogre/scene/wireboundingbox.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.userobjectbindings.obj : ogre/scene/userobjectbindings.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.skeletoninstance.obj : ogre/scene/skeletoninstance.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.simplerenderable.obj : ogre/scene/simplerenderable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.shadowtexturemanager.obj : ogre/scene/shadowtexturemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.rectangle2d.obj : ogre/scene/rectangle2d.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.scenequery.obj : ogre/scene/scenequery.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.texture.obj : ogre/resources/texture.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.datastream.obj : ogre/resources/datastream.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.mesh.obj : ogre/resources/mesh.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.resource.obj : ogre/resources/resource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.resourcemanager.obj : ogre/resources/resourcemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.resourcegroupmanager.obj : ogre/resources/resourcegroupmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.archive.obj : ogre/resources/archive.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.highlevelgpuprogram.obj : ogre/resources/highlevelgpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.entity.obj : ogre/scene/entity.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.pass.obj : ogre/materials/pass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.blendmode.obj : ogre/materials/blendmode.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.material.obj : ogre/materials/material.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.technique.obj : ogre/materials/technique.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.textureunitstate.obj : ogre/materials/textureunitstate.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.autoparamdatasource.obj : ogre/materials/autoparamdatasource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.hardware.obj : ogre/rendersystem/hardware.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.rendersystem.obj : ogre/rendersystem/rendersystem.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.renderqueuesortinggrouping.obj : ogre/rendersystem/renderqueuesortinggrouping.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.renderoperation.obj : ogre/rendersystem/renderoperation.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.renderqueue.obj : ogre/rendersystem/renderqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.vertex.obj : ogre/rendersystem/vertex.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.rendertarget.obj : ogre/rendersystem/rendertarget.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.viewport.obj : ogre/rendersystem/viewport.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.renderwindow.obj : ogre/rendersystem/renderwindow.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.billboard.obj : ogre/effects/billboard.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.billboardset.obj : ogre/effects/billboardset.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.rendertargetlistener.obj : ogre/rendersystem/rendertargetlistener.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.billboardchain.obj : ogre/effects/billboardchain.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.texturemanager.obj : ogre/resources/texturemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.ribbontrail.obj : ogre/effects/ribbontrail.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.billboardparticlerenderer.obj : ogre/effects/billboardparticlerenderer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositor.obj : ogre/effects/compositor.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositionpass.obj : ogre/effects/compositionpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositiontechnique.obj : ogre/effects/compositiontechnique.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositiontargetpass.obj : ogre/effects/compositiontargetpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.rendertexture.obj : ogre/rendersystem/rendertexture.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.materialmanager.obj : ogre/materials/materialmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.materialserializer.obj : ogre/materials/materialserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particle.obj : ogre/effects/particle.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particlesystem.obj : ogre/effects/particlesystem.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particleaffector.obj : ogre/effects/particleaffector.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particleemitter.obj : ogre/effects/particleemitter.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particlesystemmanager.obj : ogre/effects/particlesystemmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.particlesystemrenderer.obj : ogre/effects/particlesystemrenderer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.simplespline.obj : ogre/math/simplespline.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.optimisedutil.obj : ogre/math/optimisedutil.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.maths.obj : ogre/math/maths.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.rotationalspline.obj : ogre/math/rotationalspline.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.quaternion.obj : ogre/math/quaternion.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.vector.obj : ogre/math/vector.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.matrix.obj : ogre/math/matrix.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.sphere.obj : ogre/math/sphere.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.plane.obj : ogre/math/plane.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.axisalignedbox.obj : ogre/math/axisalignedbox.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.frustum.obj : ogre/math/frustum.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.instancedentity.obj : ogre/scene/instancedentity.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.instancedgeometry.obj : ogre/scene/instancedgeometry.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.instancemanager.obj : ogre/scene/instancemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.manualobject.obj : ogre/scene/manualobject.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.shadowcamera.obj : ogre/scene/shadowcamera.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.colourvalue.obj : ogre/general/colourvalue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.log.obj : ogre/general/log.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.codec.obj : ogre/general/codec.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.controller.obj : ogre/general/controller.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.generals.obj : ogre/general/generals.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.bitwise.obj : ogre/math/bitwise.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.controllermanager.obj : ogre/general/controllermanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.radixsort.obj : ogre/general/radixsort.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.ray.obj : ogre/math/ray.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.atomicwrappers.obj : ogre/general/atomicwrappers.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.staticgeometry.obj : ogre/scene/staticgeometry.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.animation.animable.obj : ogre/animation/animable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.animation.animations.obj : ogre/animation/animations.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.common.obj : ogre/general/common.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.profiler.obj : ogre/general/profiler.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.timer.obj : ogre/general/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.glx.timer.obj : ogre/general/glx/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.glx.errordialog.obj : ogre/general/glx/errordialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.meshmanager.obj : ogre/resources/meshmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.meshserializer.obj : ogre/resources/meshserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.meshfileformat.obj : ogre/resources/meshfileformat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.scene.shadowvolumeextrudeprogram.obj : ogre/scene/shadowvolumeextrudeprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.configfile.obj : ogre/general/configfile.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.framelistener.obj : ogre/general/framelistener.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.lodstrategymanager.obj : ogre/lod/lodstrategymanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.lodstrategy.obj : ogre/lod/lodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.patchmesh.obj : ogre/lod/patchmesh.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.patchsurface.obj : ogre/lod/patchsurface.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.animation.skeletonmanager.obj : ogre/animation/skeletonmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.root.obj : ogre/general/root.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.distancelodstrategy.obj : ogre/lod/distancelodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.lod.pixelcountlodstrategy.obj : ogre/lod/pixelcountlodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.dynlib.obj : ogre/general/dynlib.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.dynlibmanager.obj : ogre/general/dynlibmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.plugin.obj : ogre/general/plugin.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.workqueue.obj : ogre/general/workqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.resourcebackgroundqueue.obj : ogre/resources/resourcebackgroundqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.scriptcompiler.obj : ogre/general/scriptcompiler.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.externaltexturesource.obj : ogre/materials/externaltexturesource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.externaltexturesourcemanager.obj : ogre/materials/externaltexturesourcemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositormanager.obj : ogre/effects/compositormanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.compositorlogic.obj : ogre/effects/compositorlogic.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.effects.customcompositionpass.obj : ogre/effects/customcompositionpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.spotshadowfadepng.obj : ogre/spotshadowfadepng.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.materials.gpuprogram.obj : ogre/materials/gpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.threading.defaultworkqueuestandard.obj : ogre/threading/defaultworkqueuestandard.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.tangentspacecalc.obj : ogre/math/tangentspacecalc.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.unifiedhighlevelgpuprogram.obj : ogre/resources/unifiedhighlevelgpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.hash.obj : ogre/hash.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.cityhash.obj : ogre/cityhash.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.predefinedcontrollers.obj : ogre/general/predefinedcontrollers.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.edgedata.obj : ogre/math/edgedata.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.angles.obj : ogre/math/angles.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.resources.prefabfactory.obj : ogre/resources/prefabfactory.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.dualquaternion.obj : ogre/math/dualquaternion.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.animation.skeletonserializer.obj : ogre/animation/skeletonserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.serializer.obj : ogre/general/serializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.windows.timer.obj : ogre/general/windows/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.windows.configdialog.obj : ogre/general/windows/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.configdialog.obj : ogre/general/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.convexbody.obj : ogre/math/convexbody.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.general.platform.obj : ogre/general/platform.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.math.polygon.obj : ogre/math/polygon.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.windoweventutilities.obj : ogre/rendersystem/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.glx.windoweventutilities.obj : ogre/rendersystem/glx/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.bindings.mini_x11.obj : ogre/bindings/mini_x11.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.bindings.mini_xaw.obj : ogre/bindings/mini_xaw.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.rendersystem.windows.windoweventutilities.obj : ogre/rendersystem/windows/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.bindings.mini_win32.obj : ogre/bindings/mini_win32.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.image.pixelformat.obj : ogre/image/pixelformat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.image.images.obj : ogre/image/images.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+obj/Debug/ogre.image.freeimage.obj : ogre/image/freeimage.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" 
+
+clean:
+	del /Q /s "$(target)" $(objects) #|| $(RM) "$(target)" $(objects)

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8986B85-CF5F-4468-980F-27CB3ADF5541}</ProjectGuid>
+    <UseDefaultCompiler>True</UseDefaultCompiler>
+    <IncrementalLinking>True</IncrementalLinking>
+    <PreferOneStepBuild>True</PreferOneStepBuild>
+    <Compiler>DMD2</Compiler>
+    <Includes>
+      <Includes>
+        <Path>C:/D/dmd2/src/druntime/src</Path>
+        <Path>C:/D/dmd2/src/phobos</Path>
+        <Path>../Deps/DerelictFI</Path>
+        <Path>../Deps/DerelictUtil</Path>
+      </Includes>
+    </Includes>
+    <DependentProjectIds>
+      <DependentProjectIds>
+        <String>{865F92DA-453B-4F81-B2D0-09BC4279A153}</String>
+      </DependentProjectIds>
+    </DependentProjectIds>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Debug</OutputPath>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj/Debug</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>libOgreD</OutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <UnittestMode>False</UnittestMode>
+    <ObjectsDirectory>obj/Release</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>StaticLibrary</Target>
+    <OutputName>libOgreD</OutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Unittest|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <OutputPath>bin\Unittest</OutputPath>
+    <UnittestMode>True</UnittestMode>
+    <ObjectsDirectory>obj/Unittest</ObjectsDirectory>
+    <DebugLevel>0</DebugLevel>
+    <Externalconsole>True</Externalconsole>
+    <Target>Executable</Target>
+    <OutputName>OgreD</OutputName>
+    <ExtraCompilerArguments>-version=NO_OGRE_ZIP_ARCHIVE -version=OGRE_NO_VIEWPORT_ORIENTATIONMODE -version=OGRE_USE_NEW_COMPILERS</ExtraCompilerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="ogre\" />
+    <Folder Include="ogre\scene\" />
+    <Folder Include="ogre\resources\" />
+    <Folder Include="ogre\materials\" />
+    <Folder Include="ogre\rendersystem\" />
+    <Folder Include="ogre\effects\" />
+    <Folder Include="ogre\math\" />
+    <Folder Include="ogre\general\" />
+    <Folder Include="ogre\animation\" />
+    <Folder Include="ogre\lod\" />
+    <Folder Include="ogre\threading\" />
+    <Folder Include="ogre\rendersystem\windows\" />
+    <Folder Include="ogre\rendersystem\glx\" />
+    <Folder Include="ogre\image\" />
+    <Folder Include="ogre\general\windows\" />
+    <Folder Include="ogre\general\gtk\" />
+    <Folder Include="ogre\general\glx\" />
+    <Folder Include="ogre\bindings\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ogre\compat.d" />
+    <Compile Include="ogre\exception.d" />
+    <Compile Include="ogre\singleton.d" />
+    <Compile Include="ogre\sharedptr.d" />
+    <Compile Include="ogre\config.d" />
+    <Compile Include="ogre\strings.d" />
+    <Compile Include="ogre\scene\scenemanager.d" />
+    <Compile Include="ogre\scene\scenenode.d" />
+    <Compile Include="ogre\scene\renderable.d" />
+    <Compile Include="ogre\scene\camera.d" />
+    <Compile Include="ogre\scene\movableobject.d" />
+    <Compile Include="ogre\scene\movableplane.d" />
+    <Compile Include="ogre\scene\node.d" />
+    <Compile Include="ogre\scene\light.d" />
+    <Compile Include="ogre\scene\shadowcaster.d" />
+    <Compile Include="ogre\scene\wireboundingbox.d" />
+    <Compile Include="ogre\scene\userobjectbindings.d" />
+    <Compile Include="ogre\scene\skeletoninstance.d" />
+    <Compile Include="ogre\scene\simplerenderable.d" />
+    <Compile Include="ogre\scene\shadowtexturemanager.d" />
+    <Compile Include="ogre\scene\rectangle2d.d" />
+    <Compile Include="ogre\scene\scenequery.d" />
+    <Compile Include="ogre\resources\texture.d" />
+    <Compile Include="ogre\resources\datastream.d" />
+    <Compile Include="ogre\resources\mesh.d" />
+    <Compile Include="ogre\resources\resource.d" />
+    <Compile Include="ogre\resources\resourcemanager.d" />
+    <Compile Include="ogre\resources\resourcegroupmanager.d" />
+    <Compile Include="ogre\resources\archive.d" />
+    <Compile Include="ogre\resources\highlevelgpuprogram.d" />
+    <Compile Include="ogre\scene\entity.d" />
+    <Compile Include="ogre\materials\pass.d" />
+    <Compile Include="ogre\materials\blendmode.d" />
+    <Compile Include="ogre\materials\material.d" />
+    <Compile Include="ogre\materials\technique.d" />
+    <Compile Include="ogre\materials\textureunitstate.d" />
+    <Compile Include="ogre\materials\autoparamdatasource.d" />
+    <Compile Include="ogre\rendersystem\hardware.d" />
+    <Compile Include="ogre\rendersystem\rendersystem.d" />
+    <Compile Include="ogre\rendersystem\renderqueuesortinggrouping.d" />
+    <Compile Include="ogre\rendersystem\renderoperation.d" />
+    <Compile Include="ogre\rendersystem\renderqueue.d" />
+    <Compile Include="ogre\rendersystem\vertex.d" />
+    <Compile Include="ogre\rendersystem\rendertarget.d" />
+    <Compile Include="ogre\rendersystem\viewport.d" />
+    <Compile Include="ogre\rendersystem\renderwindow.d" />
+    <Compile Include="ogre\effects\billboard.d" />
+    <Compile Include="ogre\effects\billboardset.d" />
+    <Compile Include="ogre\rendersystem\rendertargetlistener.d" />
+    <Compile Include="ogre\effects\billboardchain.d" />
+    <Compile Include="ogre\resources\texturemanager.d" />
+    <Compile Include="ogre\effects\ribbontrail.d" />
+    <Compile Include="ogre\effects\billboardparticlerenderer.d" />
+    <Compile Include="ogre\effects\compositor.d" />
+    <Compile Include="ogre\effects\compositionpass.d" />
+    <Compile Include="ogre\effects\compositiontechnique.d" />
+    <Compile Include="ogre\effects\compositiontargetpass.d" />
+    <Compile Include="ogre\rendersystem\rendertexture.d" />
+    <Compile Include="ogre\materials\materialmanager.d" />
+    <Compile Include="ogre\effects\particle.d" />
+    <Compile Include="ogre\effects\particlesystem.d" />
+    <Compile Include="ogre\effects\particleaffector.d" />
+    <Compile Include="ogre\effects\particleemitter.d" />
+    <Compile Include="ogre\effects\particlesystemmanager.d" />
+    <Compile Include="ogre\effects\particlesystemrenderer.d" />
+    <Compile Include="ogre\math\simplespline.d" />
+    <Compile Include="ogre\math\optimisedutil.d" />
+    <Compile Include="ogre\math\maths.d" />
+    <Compile Include="ogre\math\rotationalspline.d" />
+    <Compile Include="ogre\math\quaternion.d" />
+    <Compile Include="ogre\math\vector.d" />
+    <Compile Include="ogre\math\matrix.d" />
+    <Compile Include="ogre\math\sphere.d" />
+    <Compile Include="ogre\math\plane.d" />
+    <Compile Include="ogre\math\axisalignedbox.d" />
+    <Compile Include="ogre\math\frustum.d" />
+    <Compile Include="ogre\scene\instancedentity.d" />
+    <Compile Include="ogre\scene\instancedgeometry.d" />
+    <Compile Include="ogre\scene\instancemanager.d" />
+    <Compile Include="ogre\scene\manualobject.d" />
+    <Compile Include="ogre\scene\shadowcamera.d" />
+    <Compile Include="ogre\general\colourvalue.d" />
+    <Compile Include="ogre\general\controller.d" />
+    <Compile Include="ogre\general\generals.d" />
+    <Compile Include="ogre\math\bitwise.d" />
+    <Compile Include="ogre\general\controllermanager.d" />
+    <Compile Include="ogre\general\radixsort.d" />
+    <Compile Include="ogre\math\ray.d" />
+    <Compile Include="ogre\general\atomicwrappers.d" />
+    <Compile Include="ogre\scene\staticgeometry.d" />
+    <Compile Include="ogre\animation\animable.d" />
+    <Compile Include="ogre\animation\animations.d" />
+    <Compile Include="ogre\general\common.d" />
+    <Compile Include="ogre\general\profiler.d" />
+    <Compile Include="ogre\general\timer.d" />
+    <Compile Include="ogre\resources\meshmanager.d" />
+    <Compile Include="ogre\resources\meshserializer.d" />
+    <Compile Include="ogre\resources\meshfileformat.d" />
+    <Compile Include="ogre\scene\shadowvolumeextrudeprogram.d" />
+    <Compile Include="ogre\general\configfile.d" />
+    <Compile Include="ogre\general\framelistener.d" />
+    <Compile Include="ogre\lod\lodstrategymanager.d" />
+    <Compile Include="ogre\lod\lodstrategy.d" />
+    <Compile Include="ogre\lod\patchmesh.d" />
+    <Compile Include="ogre\lod\patchsurface.d" />
+    <Compile Include="ogre\animation\skeletonmanager.d" />
+    <Compile Include="ogre\general\root.d" />
+    <Compile Include="ogre\lod\distancelodstrategy.d" />
+    <Compile Include="ogre\lod\pixelcountlodstrategy.d" />
+    <Compile Include="ogre\general\dynlib.d" />
+    <Compile Include="ogre\general\dynlibmanager.d" />
+    <Compile Include="ogre\general\plugin.d" />
+    <Compile Include="ogre\general\workqueue.d" />
+    <Compile Include="ogre\resources\resourcebackgroundqueue.d" />
+    <Compile Include="ogre\general\scriptcompiler.d" />
+    <Compile Include="ogre\materials\externaltexturesource.d" />
+    <Compile Include="ogre\materials\externaltexturesourcemanager.d" />
+    <Compile Include="ogre\effects\compositormanager.d" />
+    <Compile Include="ogre\effects\compositorlogic.d" />
+    <Compile Include="ogre\effects\customcompositionpass.d" />
+    <Compile Include="ogre\spotshadowfadepng.d" />
+    <Compile Include="ogre\materials\gpuprogram.d" />
+    <Compile Include="ogre\threading\defaultworkqueuestandard.d" />
+    <Compile Include="ogre\math\tangentspacecalc.d" />
+    <Compile Include="ogre\resources\unifiedhighlevelgpuprogram.d" />
+    <Compile Include="ogre\hash.d" />
+    <Compile Include="ogre\cityhash.d" />
+    <Compile Include="ogre\general\predefinedcontrollers.d" />
+    <Compile Include="ogre\math\edgedata.d" />
+    <Compile Include="ogre\math\angles.d" />
+    <Compile Include="ogre\resources\prefabfactory.d" />
+    <Compile Include="ogre\math\dualquaternion.d" />
+    <Compile Include="ogre\animation\skeletonserializer.d" />
+    <Compile Include="ogre\general\serializer.d" />
+    <Compile Include="ogre\general\configdialog.d" />
+    <Compile Include="ogre\math\convexbody.d" />
+    <Compile Include="ogre\general\platform.d" />
+    <Compile Include="ogre\math\polygon.d" />
+    <Compile Include="ogre\rendersystem\windoweventutilities.d" />
+    <Compile Include="ogre\rendersystem\glx\windoweventutilities.d" />
+    <Compile Include="ogre\rendersystem\windows\windoweventutilities.d" />
+    <Compile Include="ogre\image\pixelformat.d" />
+    <Compile Include="ogre\image\images.d" />
+    <Compile Include="ogre\image\freeimage.d" />
+    <Compile Include="ogre\general\log.d" />
+    <Compile Include="ogre\general\codec.d" />
+    <Compile Include="ogre\general\windows\timer.d" />
+    <Compile Include="ogre\general\windows\configdialog.d" />
+    <Compile Include="ogre\general\gtk\configdialog.d" />
+    <Compile Include="ogre\general\gtk\errordialog.d" />
+    <Compile Include="ogre\general\glx\timer.d" />
+    <Compile Include="ogre\general\glx\errordialog.d" />
+    <Compile Include="ogre\general\errordialog.d" />
+    <Compile Include="ogre\general\glx\configdialog.d" />
+    <Compile Include="ogre\bindings\mini_gtk.di" />
+    <Compile Include="ogre\bindings\mini_win32.d" />
+    <Compile Include="ogre\bindings\mini_x11.d" />
+    <Compile Include="ogre\bindings\mini_xaw.d" />
+    <Compile Include="ogre\backdrop.d" />
+    <Compile Include="ogre\initstatics.d" />
+    <Compile Include="ogre\materials\materialserializer.d" />
+    <Compile Include="ogre\general\scriptlexer.d" />
+    <Compile Include="ogre\general\scriptparser.d" />
+    <Compile Include="ogre\general\scripttranslator.d" />
+    <Compile Include="ogre\resources\progressivemeshgenerator.d" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ogre\any.d" />
+    <None Include="ogre\scene\_package.d" />
+    <None Include="ogre\rendersystem\_package.d" />
+    <None Include="ogre\resources\_package.d" />
+    <None Include="ogre\materials\_package.d" />
+    <None Include="ogre\effects\_package.d" />
+  </ItemGroup>
+</Project>

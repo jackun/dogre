@@ -1,0 +1,25 @@
+compiler=dmd
+linker=dmd
+
+#DFLAGS=-gc -debug
+target=bin/Debug/libDerelictFI.lib
+objects = obj/Debug/derelict.freeimage.freeimage.obj obj/Debug/derelict.freeimage.functions.obj obj/Debug/derelict.freeimage.types.obj
+
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker)  $(DFLAGS) -lib "-of$@" $(objects)
+
+obj/Debug/derelict.freeimage.freeimage.obj : derelict/freeimage/freeimage.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.freeimage.functions.obj : derelict/freeimage/functions.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+obj/Debug/derelict.freeimage.types.obj : derelict/freeimage/types.d
+	$(compiler) -c $? "-of$@" "-I../DerelictUtil" $(DFLAGS)
+
+clean:
+	$(RM) "$(target)" $(objects)

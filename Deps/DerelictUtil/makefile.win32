@@ -1,0 +1,35 @@
+compiler=dmd
+linker=dmd
+
+#DFLAGS=-debug -gc
+
+target=bin/Debug/libDerelictUtil.lib
+objects = obj/Debug/derelict.util.exception.obj obj/Debug/derelict.util.loader.obj obj/Debug/derelict.util.sharedlib.obj obj/Debug/derelict.util.system.obj obj/Debug/derelict.util.wintypes.obj obj/Debug/derelict.util.xtypes.obj
+
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) $(DFLAGS) -lib "-of$@" $(objects)
+
+obj/Debug/derelict.util.exception.obj : derelict/util/exception.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/Debug/derelict.util.loader.obj : derelict/util/loader.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/Debug/derelict.util.sharedlib.obj : derelict/util/sharedlib.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/Debug/derelict.util.system.obj : derelict/util/system.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/Debug/derelict.util.wintypes.obj : derelict/util/wintypes.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+obj/Debug/derelict.util.xtypes.obj : derelict/util/xtypes.d
+	$(compiler) $(DFLAGS) -c $? "-of$@"
+
+clean:
+	$(RM) "$(target)" $(objects)

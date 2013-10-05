@@ -1,0 +1,529 @@
+compiler=gdmd
+linker=gdmd
+
+DFLAGS=-debug -property -version=OGRE_NO_ZIP_ARCHIVE -version=OGRE_NO_VIEWPORT_ORIENTATIONMODE \
+	-I../Deps/DerelictFI -I../Deps/DerelictUtil 
+###-version=OGRE_GTK
+
+target=bin/Debug/libOgreD.a
+objects =  obj/Debug/ogre.exception.o obj/Debug/ogre.singleton.o \
+obj/Debug/ogre.sharedptr.o obj/Debug/ogre.config.o obj/Debug/ogre.strings.o \
+obj/Debug/ogre.scene.scenemanager.o obj/Debug/ogre.scene.scenenode.o obj/Debug/ogre.scene.renderable.o obj/Debug/ogre.scene.camera.o obj/Debug/ogre.scene.movableobject.o obj/Debug/ogre.scene.movableplane.o obj/Debug/ogre.scene.node.o obj/Debug/ogre.scene.light.o obj/Debug/ogre.scene.shadowcaster.o obj/Debug/ogre.scene.wireboundingbox.o obj/Debug/ogre.scene.userobjectbindings.o obj/Debug/ogre.scene.skeletoninstance.o obj/Debug/ogre.scene.simplerenderable.o obj/Debug/ogre.scene.shadowtexturemanager.o obj/Debug/ogre.scene.rectangle2d.o obj/Debug/ogre.scene.scenequery.o obj/Debug/ogre.resources.texture.o obj/Debug/ogre.resources.datastream.o obj/Debug/ogre.resources.mesh.o obj/Debug/ogre.resources.resource.o obj/Debug/ogre.resources.resourcemanager.o obj/Debug/ogre.resources.resourcegroupmanager.o obj/Debug/ogre.resources.archive.o obj/Debug/ogre.resources.highlevelgpuprogram.o obj/Debug/ogre.scene.entity.o obj/Debug/ogre.materials.pass.o obj/Debug/ogre.materials.blendmode.o obj/Debug/ogre.materials.material.o obj/Debug/ogre.materials.technique.o obj/Debug/ogre.materials.textureunitstate.o obj/Debug/ogre.materials.autoparamdatasource.o obj/Debug/ogre.rendersystem.hardware.o obj/Debug/ogre.rendersystem.rendersystem.o obj/Debug/ogre.rendersystem.renderqueuesortinggrouping.o obj/Debug/ogre.rendersystem.renderoperation.o obj/Debug/ogre.rendersystem.renderqueue.o obj/Debug/ogre.rendersystem.vertex.o obj/Debug/ogre.rendersystem.rendertarget.o obj/Debug/ogre.rendersystem.viewport.o obj/Debug/ogre.rendersystem.renderwindow.o obj/Debug/ogre.effects.billboard.o obj/Debug/ogre.effects.billboardset.o obj/Debug/ogre.rendersystem.rendertargetlistener.o obj/Debug/ogre.effects.billboardchain.o obj/Debug/ogre.resources.texturemanager.o obj/Debug/ogre.effects.ribbontrail.o obj/Debug/ogre.effects.billboardparticlerenderer.o obj/Debug/ogre.effects.compositor.o obj/Debug/ogre.effects.compositionpass.o obj/Debug/ogre.effects.compositiontechnique.o obj/Debug/ogre.effects.compositiontargetpass.o obj/Debug/ogre.rendersystem.rendertexture.o obj/Debug/ogre.materials.materialmanager.o obj/Debug/ogre.materials.materialserializer.o obj/Debug/ogre.effects.particle.o obj/Debug/ogre.effects.particlesystem.o obj/Debug/ogre.effects.particleaffector.o obj/Debug/ogre.effects.particleemitter.o obj/Debug/ogre.effects.particlesystemmanager.o obj/Debug/ogre.effects.particlesystemrenderer.o obj/Debug/ogre.math.simplespline.o obj/Debug/ogre.math.optimisedutil.o obj/Debug/ogre.math.maths.o obj/Debug/ogre.math.rotationalspline.o obj/Debug/ogre.math.quaternion.o obj/Debug/ogre.math.vector.o obj/Debug/ogre.math.matrix.o obj/Debug/ogre.math.sphere.o obj/Debug/ogre.math.plane.o obj/Debug/ogre.math.axisalignedbox.o obj/Debug/ogre.math.frustum.o obj/Debug/ogre.scene.instancedentity.o obj/Debug/ogre.scene.instancedgeometry.o obj/Debug/ogre.scene.instancemanager.o obj/Debug/ogre.scene.manualobject.o obj/Debug/ogre.scene.shadowcamera.o obj/Debug/ogre.general.colourvalue.o obj/Debug/ogre.general.controller.o obj/Debug/ogre.general.generals.o obj/Debug/ogre.math.bitwise.o obj/Debug/ogre.general.controllermanager.o obj/Debug/ogre.general.radixsort.o obj/Debug/ogre.math.ray.o obj/Debug/ogre.general.atomicwrappers.o obj/Debug/ogre.scene.staticgeometry.o obj/Debug/ogre.animation.animable.o obj/Debug/ogre.animation.animations.o obj/Debug/ogre.general.common.o obj/Debug/ogre.general.profiler.o obj/Debug/ogre.general.timer.o \
+obj/Debug/ogre.general.glx.timer.o obj/Debug/ogre.resources.meshmanager.o \
+obj/Debug/ogre.resources.meshserializer.o obj/Debug/ogre.resources.meshfileformat.o obj/Debug/ogre.scene.shadowvolumeextrudeprogram.o obj/Debug/ogre.general.configfile.o obj/Debug/ogre.general.framelistener.o obj/Debug/ogre.lod.lodstrategymanager.o obj/Debug/ogre.lod.lodstrategy.o obj/Debug/ogre.lod.patchmesh.o obj/Debug/ogre.lod.patchsurface.o obj/Debug/ogre.animation.skeletonmanager.o obj/Debug/ogre.general.root.o obj/Debug/ogre.lod.distancelodstrategy.o obj/Debug/ogre.lod.pixelcountlodstrategy.o obj/Debug/ogre.general.dynlib.o obj/Debug/ogre.general.dynlibmanager.o obj/Debug/ogre.general.plugin.o obj/Debug/ogre.general.workqueue.o obj/Debug/ogre.resources.resourcebackgroundqueue.o obj/Debug/ogre.general.scriptcompiler.o obj/Debug/ogre.materials.externaltexturesource.o obj/Debug/ogre.materials.externaltexturesourcemanager.o obj/Debug/ogre.effects.compositormanager.o obj/Debug/ogre.effects.compositorlogic.o obj/Debug/ogre.effects.customcompositionpass.o obj/Debug/ogre.spotshadowfadepng.o obj/Debug/ogre.materials.gpuprogram.o obj/Debug/ogre.threading.defaultworkqueuestandard.o obj/Debug/ogre.math.tangentspacecalc.o obj/Debug/ogre.resources.unifiedhighlevelgpuprogram.o obj/Debug/ogre.hash.o obj/Debug/ogre.cityhash.o obj/Debug/ogre.general.predefinedcontrollers.o obj/Debug/ogre.math.edgedata.o obj/Debug/ogre.math.angles.o obj/Debug/ogre.resources.prefabfactory.o obj/Debug/ogre.math.dualquaternion.o obj/Debug/ogre.animation.skeletonserializer.o obj/Debug/ogre.general.serializer.o obj/Debug/ogre.general.windows.timer.o obj/Debug/ogre.general.windows.configdialog.o obj/Debug/ogre.general.configdialog.o obj/Debug/ogre.math.convexbody.o obj/Debug/ogre.general.platform.o obj/Debug/ogre.math.polygon.o obj/Debug/ogre.rendersystem.windoweventutilities.o obj/Debug/ogre.rendersystem.glx.windoweventutilities.o obj/Debug/ogre.rendersystem.windows.windoweventutilities.o obj/Debug/ogre.image.pixelformat.o obj/Debug/ogre.image.images.o \
+obj/Debug/ogre.bindings.mini_x11.o \
+obj/Debug/ogre.bindings.mini_xaw.o \
+obj/Debug/ogre.bindings.mini_win32.o \
+obj/Debug/ogre.bindings.mini_gtk.o \
+obj/Debug/ogre.image.freeimage.o \
+obj/Debug/ogre.general.codec.o \
+obj/Debug/ogre.general.log.o \
+obj/Debug/ogre.general.gtk.configdialog.o \
+obj/Debug/ogre.general.gtk.errordialog.o \
+obj/Debug/ogre.backdrop.o \
+obj/Debug/ogre.general.glx.errordialog.o \
+obj/Debug/ogre.general.glx.configdialog.o \
+obj/Debug/ogre.initstatics.o \
+obj/Debug/ogre.compat.o
+
+#obj/Debug/main.o
+
+
+
+
+all: $(target)
+
+$(target): $(objects)
+	@echo Linking...
+	ar rcs "$@" $(objects) 
+	#ogre/general/windows/OgreWin32.res
+		
+		#"../DerelictFI/bin/Debug/libDerelictFI.lib" /
+		#"../DerelictUtil/bin/Debug/libDerelictUtil.lib"
+
+obj/Debug/ogre.initstatics.o : ogre/initstatics.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.backdrop.o : ogre/backdrop.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.bindings.mini_gtk.o : ogre/bindings/mini_gtk.di
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.gtk.configdialog.o : ogre/general/gtk/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+	
+obj/Debug/ogre.general.glx.configdialog.o : ogre/general/glx/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.gtk.errordialog.o : ogre/general/gtk/errordialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+
+obj/Debug/ogre.compat.o : ogre/compat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/main.o : main.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.exception.o : ogre/exception.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.singleton.o : ogre/singleton.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.sharedptr.o : ogre/sharedptr.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.config.o : ogre/config.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.strings.o : ogre/strings.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.scenemanager.o : ogre/scene/scenemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.scenenode.o : ogre/scene/scenenode.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.renderable.o : ogre/scene/renderable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.camera.o : ogre/scene/camera.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.movableobject.o : ogre/scene/movableobject.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.movableplane.o : ogre/scene/movableplane.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.node.o : ogre/scene/node.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.light.o : ogre/scene/light.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.shadowcaster.o : ogre/scene/shadowcaster.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.wireboundingbox.o : ogre/scene/wireboundingbox.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.userobjectbindings.o : ogre/scene/userobjectbindings.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.skeletoninstance.o : ogre/scene/skeletoninstance.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.simplerenderable.o : ogre/scene/simplerenderable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.shadowtexturemanager.o : ogre/scene/shadowtexturemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.rectangle2d.o : ogre/scene/rectangle2d.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.scenequery.o : ogre/scene/scenequery.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.texture.o : ogre/resources/texture.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.datastream.o : ogre/resources/datastream.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.mesh.o : ogre/resources/mesh.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.resource.o : ogre/resources/resource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.resourcemanager.o : ogre/resources/resourcemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.resourcegroupmanager.o : ogre/resources/resourcegroupmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.archive.o : ogre/resources/archive.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.highlevelgpuprogram.o : ogre/resources/highlevelgpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.entity.o : ogre/scene/entity.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.pass.o : ogre/materials/pass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.blendmode.o : ogre/materials/blendmode.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.material.o : ogre/materials/material.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.technique.o : ogre/materials/technique.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.textureunitstate.o : ogre/materials/textureunitstate.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.autoparamdatasource.o : ogre/materials/autoparamdatasource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.hardware.o : ogre/rendersystem/hardware.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.rendersystem.o : ogre/rendersystem/rendersystem.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.renderqueuesortinggrouping.o : ogre/rendersystem/renderqueuesortinggrouping.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.renderoperation.o : ogre/rendersystem/renderoperation.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.renderqueue.o : ogre/rendersystem/renderqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.vertex.o : ogre/rendersystem/vertex.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.rendertarget.o : ogre/rendersystem/rendertarget.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.viewport.o : ogre/rendersystem/viewport.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.renderwindow.o : ogre/rendersystem/renderwindow.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.billboard.o : ogre/effects/billboard.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.billboardset.o : ogre/effects/billboardset.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.rendertargetlistener.o : ogre/rendersystem/rendertargetlistener.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.billboardchain.o : ogre/effects/billboardchain.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.texturemanager.o : ogre/resources/texturemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.ribbontrail.o : ogre/effects/ribbontrail.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.billboardparticlerenderer.o : ogre/effects/billboardparticlerenderer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositor.o : ogre/effects/compositor.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositionpass.o : ogre/effects/compositionpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositiontechnique.o : ogre/effects/compositiontechnique.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositiontargetpass.o : ogre/effects/compositiontargetpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.rendertexture.o : ogre/rendersystem/rendertexture.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.materialmanager.o : ogre/materials/materialmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.materialserializer.o : ogre/materials/materialserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particle.o : ogre/effects/particle.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particlesystem.o : ogre/effects/particlesystem.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particleaffector.o : ogre/effects/particleaffector.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particleemitter.o : ogre/effects/particleemitter.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particlesystemmanager.o : ogre/effects/particlesystemmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.particlesystemrenderer.o : ogre/effects/particlesystemrenderer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.simplespline.o : ogre/math/simplespline.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.optimisedutil.o : ogre/math/optimisedutil.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.maths.o : ogre/math/maths.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.rotationalspline.o : ogre/math/rotationalspline.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.quaternion.o : ogre/math/quaternion.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.vector.o : ogre/math/vector.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.matrix.o : ogre/math/matrix.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.sphere.o : ogre/math/sphere.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.plane.o : ogre/math/plane.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.axisalignedbox.o : ogre/math/axisalignedbox.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.frustum.o : ogre/math/frustum.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.instancedentity.o : ogre/scene/instancedentity.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.instancedgeometry.o : ogre/scene/instancedgeometry.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.instancemanager.o : ogre/scene/instancemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.manualobject.o : ogre/scene/manualobject.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.shadowcamera.o : ogre/scene/shadowcamera.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.colourvalue.o : ogre/general/colourvalue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.log.o : ogre/general/log.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.codec.o : ogre/general/codec.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.controller.o : ogre/general/controller.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.generals.o : ogre/general/generals.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.bitwise.o : ogre/math/bitwise.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.controllermanager.o : ogre/general/controllermanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.radixsort.o : ogre/general/radixsort.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.ray.o : ogre/math/ray.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.atomicwrappers.o : ogre/general/atomicwrappers.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.staticgeometry.o : ogre/scene/staticgeometry.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.animation.animable.o : ogre/animation/animable.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.animation.animations.o : ogre/animation/animations.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.common.o : ogre/general/common.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.profiler.o : ogre/general/profiler.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.timer.o : ogre/general/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.glx.timer.o : ogre/general/glx/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.glx.errordialog.o : ogre/general/glx/errordialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.meshmanager.o : ogre/resources/meshmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.meshserializer.o : ogre/resources/meshserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.meshfileformat.o : ogre/resources/meshfileformat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.scene.shadowvolumeextrudeprogram.o : ogre/scene/shadowvolumeextrudeprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.configfile.o : ogre/general/configfile.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.framelistener.o : ogre/general/framelistener.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.lodstrategymanager.o : ogre/lod/lodstrategymanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.lodstrategy.o : ogre/lod/lodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.patchmesh.o : ogre/lod/patchmesh.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.patchsurface.o : ogre/lod/patchsurface.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.animation.skeletonmanager.o : ogre/animation/skeletonmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.root.o : ogre/general/root.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.distancelodstrategy.o : ogre/lod/distancelodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.lod.pixelcountlodstrategy.o : ogre/lod/pixelcountlodstrategy.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.dynlib.o : ogre/general/dynlib.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.dynlibmanager.o : ogre/general/dynlibmanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.plugin.o : ogre/general/plugin.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.workqueue.o : ogre/general/workqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.resourcebackgroundqueue.o : ogre/resources/resourcebackgroundqueue.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.scriptcompiler.o : ogre/general/scriptcompiler.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.externaltexturesource.o : ogre/materials/externaltexturesource.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.externaltexturesourcemanager.o : ogre/materials/externaltexturesourcemanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositormanager.o : ogre/effects/compositormanager.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.compositorlogic.o : ogre/effects/compositorlogic.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.effects.customcompositionpass.o : ogre/effects/customcompositionpass.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.spotshadowfadepng.o : ogre/spotshadowfadepng.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.materials.gpuprogram.o : ogre/materials/gpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.threading.defaultworkqueuestandard.o : ogre/threading/defaultworkqueuestandard.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.tangentspacecalc.o : ogre/math/tangentspacecalc.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.unifiedhighlevelgpuprogram.o : ogre/resources/unifiedhighlevelgpuprogram.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.hash.o : ogre/hash.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.cityhash.o : ogre/cityhash.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.predefinedcontrollers.o : ogre/general/predefinedcontrollers.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.edgedata.o : ogre/math/edgedata.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.angles.o : ogre/math/angles.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.resources.prefabfactory.o : ogre/resources/prefabfactory.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.dualquaternion.o : ogre/math/dualquaternion.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.animation.skeletonserializer.o : ogre/animation/skeletonserializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.serializer.o : ogre/general/serializer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.windows.timer.o : ogre/general/windows/timer.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.windows.configdialog.o : ogre/general/windows/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.configdialog.o : ogre/general/configdialog.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.convexbody.o : ogre/math/convexbody.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.general.platform.o : ogre/general/platform.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.math.polygon.o : ogre/math/polygon.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.windoweventutilities.o : ogre/rendersystem/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.glx.windoweventutilities.o : ogre/rendersystem/glx/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.bindings.mini_x11.o : ogre/bindings/mini_x11.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.bindings.mini_xaw.o : ogre/bindings/mini_xaw.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.rendersystem.windows.windoweventutilities.o : ogre/rendersystem/windows/windoweventutilities.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.bindings.mini_win32.o : ogre/bindings/mini_win32.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.image.pixelformat.o : ogre/image/pixelformat.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.image.images.o : ogre/image/images.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+obj/Debug/ogre.image.freeimage.o : ogre/image/freeimage.d
+	$(compiler)  $(DFLAGS) -c $? "-of$@" "-IC:/D/dmd2/src/druntime/src" "-IC:/D/dmd2/src/phobos" "-I../Derelict3" -gc 
+
+clean:
+	del /Q /s "$(target)" $(objects) #|| $(RM) "$(target)" $(objects)

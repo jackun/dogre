@@ -1,0 +1,7 @@
+Stuff to remember to fix:
+	* Check functions that return objects by argument reference ( func(ref T t) { t=something;} )
+		Some cast away refs and objects stay null :(
+	* Remove unnecessery refs
+	* Possible unsigned types and subtraction op errors, sigh
+	* Plenty of uninitialised class members
+	* calculateSize()

@@ -1,0 +1,64 @@
+compiler=dmd
+linker=dmd
+MAKE=make
+
+target=bin\Debug\Sample1.exe
+objects = obj\Debug\main.obj
+
+LIBS=-Lgdi32.lib -Luser32.lib -Lopengl32.lib
+DFLAGS=-debug -g "-I..\..\OgreD" "-I..\..\Deps\DerelictFI" "-I..\..\RenderSystems\GL" \
+	"-I..\..\Deps\DerelictGL3" "-I..\..\Deps\DerelictUtil" "-I..\..\Deps\DerelictSDL2"
+
+deps = ..\..\OgreD\bin\Debug\libOgreD.lib ..\..\RenderSystems\GL\bin\Debug\libRenderSystemGL.lib \
+	..\..\Deps\DerelictSDL2\bin\Debug\libDerelictSDL2.lib \
+	..\..\Deps\DerelictGL3\bin\Debug\libDerelictGL3.lib \
+	..\..\Deps\DerelictFI\bin\Debug\libDerelictFI.lib \
+	..\..\Deps\DerelictUtil\bin\Debug\libDerelictUtil.lib 
+
+
+#all: depends $(target)
+all:  $(target)
+
+depends: $(deps)
+	@echo
+
+$(target): $(objects)
+	@echo Linking...
+	$(linker) -L/PAGESIZE:2048 "-of$@"  $(LIBS)  $(deps) $(objects) 
+	echo Done.
+
+obj\Debug\main.obj : main.d
+	$(compiler) $(DFLAGS) -c $? "-of$@" 
+
+..\..\Deps\DerelictFI\bin\Debug\libDerelictFI.lib : ..\..\Deps\DerelictFI
+	@echo Make DerelictFI
+	cd $?
+	$(MAKE) -f makefile.win32
+
+..\..\Deps\DerelictUtil\bin\Debug\libDerelictUtil.lib : ..\..\Deps\DerelictUtil
+	@echo Make DerelictUtil
+	cd $? 
+	$(MAKE) -f makefile.win32
+	
+..\..\Deps\DerelictSDL2\bin\Debug\libDerelictSDL2.lib : ..\..\Deps\DerelictSDL2
+	@echo Make DerelictSDL2
+	cd $? 
+	$(MAKE) -f makefile.win32
+
+..\..\Deps\DerelictGL3\bin\Debug\libDerelictGL3.lib : ..\..\Deps\DerelictGL3
+	@echo Make DerelictGL3
+	cd $? 
+	$(MAKE) -f makefile.win32
+
+..\..\RenderSystems\GL\bin\Debug\libRenderSystemGL.lib : ..\..\RenderSystems\GL
+	@echo Make RenderSystemGL
+	cd $? 
+	$(MAKE) -f makefile.win32
+
+..\..\OgreD\bin\Debug\libOgreD.lib : ..\..\OgreD
+	@echo Make OgreD
+	cd $? 
+	$(MAKE) -f makefile.lib.win32
+	
+clean:
+	$(RM) "$(target)" $(objects)
